@@ -65,26 +65,6 @@ php artisan key:generate
 php artisan serve
 ```
 
-9. Chạy Storage:Link
-
-```
-php artisan storage:link
-```
-
-10. Thay đổi đường dẫn app
-
-```
-env('APP_URL') đảm bảo có dạng là APP_URL=http://localhost:8000/ và có thể thay đổi http://localhost:8000/ theo đường dẫn trang web khi deploy
-```
-
-11. Thêm Packagit hổ trợ gửi mail ‘view-css-inliner’:
-
-```
-1. composer require fedeisas/laravel-mail-css-inliner
-2. php artisan vendor:publish --provider='Fedeisas\LaravelMailCssInliner\LaravelMailCssInlinerServiceProvider'
-3. composer install
-```
-
 Truy cập ứng dụng thông qua trình duyệt web tại địa chỉ sau: **http://localhost:8000**
 
 **Quy chuẩn**<br>
