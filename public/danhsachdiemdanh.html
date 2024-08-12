@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Danh sách điểm danh sinh viên</title>
+    <link rel="shortcut icon" href="./images/logoHNC.png" type="image/x-icon" /> 
+    <!-- Link CSS-->
+    <link rel="stylesheet" href="./css/library.css">
+    <link rel="stylesheet" href="./css/grid.css">
+    <link rel="stylesheet" href="./css/danhsachdiemdanh.css">
+    <!-- Link Animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <nav class="nav">
+        <div class="grid container">
+            <div class="row">
+                <div class="col l-12">
+                    <ul class="flex content-center navbar">
+                        <li class="nav__item"><a class="link link--primary nav--link" href="./homepage.html">Trang chủ</a></li>
+                        <li class="nav__item">
+                            <a class="link link--primary nav--link dropdown" href="#">Giảng Dạy</a>
+                            <ul class="dropdown-menu" style="min-width: 200px;">
+                                <li class="dropdown__item"><a href="#" class="link link--black dropdown--link">Xem thời khoá biểu</a></li>
+                                <li class="dropdown__item"><a href="#" class="link link--black dropdown--link">Tra cứu lịch coi thi</a></li>
+                                <li class="dropdown__item"><a href="#" class="link link--black dropdown--link">Sổ nhật ký giảng dạy</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav__item">
+                            <a class="link link--primary nav--link dropdown" href="#">Quản lý quá trình điểm</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown__item"><a href="#" class="link link--black dropdown--link">Điểm danh sinh viên</a></li>
+                                <li class="dropdown__item"><a href="#" class="link link--black dropdown--link">Nhập điểm thành phần</a></li>
+                                <li class="dropdown__item"><a href="#" class="link link--black dropdown--link">Nhập điểm thi</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav__item">
+                            <a class="link link--primary nav--link dropdown" href="#">Danh mục biểu mẫu</a>
+                            <ul class="dropdown-menu" style="min-width: 200px;">
+                                <li class="dropdown__item"><a href="./bieumau.html" class="link link--black dropdown--link">Danh sách biểu mẫu</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav__item">
+                            <a class="link link--primary nav--link" href="./lienhe.html">
+                                <span style="line-height: normal;"><svg class="nav__icon" xmlns="http://www.w3.org/2000/svg" class="ionicon s-ion-icon" viewBox="0 0 512 512"><path d="M391 480c-19.52 0-46.94-7.06-88-30-49.93-28-88.55-53.85-138.21-103.38C116.91 298.77 93.61 267.79 61 208.45c-36.84-67-30.56-102.12-23.54-117.13C45.82 73.38 58.16 62.65 74.11 52a176.3 176.3 0 0128.64-15.2c1-.43 1.93-.84 2.76-1.21 4.95-2.23 12.45-5.6 21.95-2 6.34 2.38 12 7.25 20.86 16 18.17 17.92 43 57.83 52.16 77.43 6.15 13.21 10.22 21.93 10.23 31.71 0 11.45-5.76 20.28-12.75 29.81-1.31 1.79-2.61 3.5-3.87 5.16-7.61 10-9.28 12.89-8.18 18.05 2.23 10.37 18.86 41.24 46.19 68.51s57.31 42.85 67.72 45.07c5.38 1.15 8.33-.59 18.65-8.47 1.48-1.13 3-2.3 4.59-3.47 10.66-7.93 19.08-13.54 30.26-13.54h.06c9.73 0 18.06 4.22 31.86 11.18 18 9.08 59.11 33.59 77.14 51.78 8.77 8.84 13.66 14.48 16.05 20.81 3.6 9.53.21 17-2 22-.37.83-.78 1.74-1.21 2.75a176.49 176.49 0 01-15.29 28.58c-10.63 15.9-21.4 28.21-39.38 36.58A67.42 67.42 0 01391 480z"></path></svg></span>
+                                Liên hệ
+                            </a>
+                        </li>
+                        <li class="nav__item flex content-center">
+                            <a class="link link--primary nav--link dropdown" href="#">
+                                <span style="line-height: normal;"><svg class="nav__icon" xmlns="http://www.w3.org/2000/svg" class="ionicon s-ion-icon" viewBox="0 0 512 512"><path d="M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z"></path></svg></span>
+                                Phạm Xuân Huy
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown__item"><a href="#" class="link link--black dropdown--link">Thông tin cá nhân</a></li>
+                                <li class="dropdown__item">
+                                    <a href="./changepassword.html" class="link link--black dropdown--link">
+                                        <span class="flex content-center"><svg class="nav__icon" style="fill: #000" xmlns="http://www.w3.org/2000/svg" class="ionicon s-ion-icon" viewBox="0 0 512 512"><path d="M368 192h-16v-80a96 96 0 10-192 0v80h-16a64.07 64.07 0 00-64 64v176a64.07 64.07 0 0064 64h224a64.07 64.07 0 0064-64V256a64.07 64.07 0 00-64-64zm-48 0H192v-80a64 64 0 11128 0z"></path></svg></span>
+                                        Đổi mật khẩu
+                                    </a>
+                                </li>
+                                <li class="dropdown__item">
+                                    <a href="./login.html" class="link link--black dropdown--link">
+                                        <svg height="14px" width="14px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 30.143 30.143" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path style="fill:#030104;" d="M20.034,2.357v3.824c3.482,1.798,5.869,5.427,5.869,9.619c0,5.98-4.848,10.83-10.828,10.83 c-5.982,0-10.832-4.85-10.832-10.83c0-3.844,2.012-7.215,5.029-9.136V2.689C4.245,4.918,0.731,9.945,0.731,15.801 c0,7.921,6.42,14.342,14.34,14.342c7.924,0,14.342-6.421,14.342-14.342C29.412,9.624,25.501,4.379,20.034,2.357z"></path> <path style="fill:#030104;" d="M14.795,17.652c1.576,0,1.736-0.931,1.736-2.076V2.08c0-1.148-0.16-2.08-1.736-2.08 c-1.57,0-1.732,0.932-1.732,2.08v13.496C13.062,16.722,13.225,17.652,14.795,17.652z"></path> </g> </g></svg>
+                                        Đăng xuất
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Content -->
+    <div class="grid container">
+        <div class="row">
+            <div class="col l-12 flex flex-col content-center" style="position: relative;">
+                <div class="content__title">
+                    <h3>Điểm danh sinh viên</h3>
+                    <div class="content__desc">
+                        <label>Môn học: An toàn và bảo mật thông tin</label>
+                        <label>Lớp học phần: 1621CNT03</label>
+                    </div>
+                </div>
+                <hr class="seperator">
+                <!-- Date-picker -->
+                <div class="flex content-center justify-end" style="gap: 10px;">
+                    <label for="dateofbirth" style="font-size: 14px;">Ngày điểm danh:</label>
+                    <input type="date" name="dateofbirth" id="dateofbirth">
+                </div>
+                <!-- table  -->
+                <div class="table-container animate__animated animate__fadeInUp table-list">
+                    <table
+                        class="table" style="font-size: 14px; position: relative;">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Mã sinh viên</th>
+                                <th>Họ và tên</th>
+                                <th>Môn học/Module</th>
+                                <th>Tên lớp</th>
+                                <th>Ngày điểm danh</th>
+                                <th>Ca</th>
+                                <th>Tiết</th>
+                                <th>Số tiết đi muộn</th>
+                                <th colspan="2">Ghi chú</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="tr__title">
+                                <td>1</td>
+                                <td>2109610335</td>
+                                <td>Phạm Xuân Huy</td>
+                                <td>An toàn và bảo mật thông tin</td>
+                                <td>1621CNT03</td>
+                                <td>15/07/2024</td>
+                                <td>Sáng</td>
+                                <td>Tiết 1-5</td>
+                                <td>
+                                    <div class="search-option">
+                                        <select name="search__select-option justify-center" id="search__select-option" class="select-option search__select-option">
+                                            <option value="1">-- Chọn số tiết --</option>
+                                            <option value="2">Đi học đầy đủ - 0</option>
+                                            <option value="3">Vắng - 1 tiết</option>
+                                            <option value="3">Vắng - 2 tiết</option>
+                                            <option value="3">Vắng - 3 tiết</option>
+                                            <option value="3">Vắng - 4 tiết</option>
+                                            <option value="3">Vắng - 5 tiết</option>
+                                            <option value="3">Nghỉ có lí do</option>
+                                            <option value="3">Nghỉ không lí do</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td colspan="2">
+                                    <input type="text" value="Vào học muộn 45 phút" class="table__input">
+                                </td>
+                            </tr>
+                            <tr class="tr__title">
+                                <td>1</td>
+                                <td>2109610335</td>
+                                <td>Phạm Xuân Huy</td>
+                                <td>An toàn và bảo mật thông tin</td>
+                                <td>1621CNT03</td>
+                                <td>15/07/2024</td>
+                                <td>Sáng</td>
+                                <td>Tiết 1-5</td>
+                                <td>
+                                    <div class="search-option">
+                                        <select name="search__select-option justify-center" id="search__select-option" class="select-option search__select-option">
+                                            <option value="1">-- Chọn số tiết --</option>
+                                            <option value="2">Đi học đầy đủ - 0</option>
+                                            <option value="3">Vắng - 1 tiết</option>
+                                            <option value="3">Vắng - 2 tiết</option>
+                                            <option value="3">Vắng - 3 tiết</option>
+                                            <option value="3">Vắng - 4 tiết</option>
+                                            <option value="3">Vắng - 5 tiết</option>
+                                            <option value="3">Nghỉ có lí do</option>
+                                            <option value="3">Nghỉ không lí do</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td colspan="2">
+                                    <input type="text" value="Vào học muộn 45 phút" class="table__input">
+                                </td>
+                            </tr>
+                            <tr class="tr__title">
+                                <td>1</td>
+                                <td>2109610335</td>
+                                <td>Phạm Xuân Huy</td>
+                                <td>An toàn và bảo mật thông tin</td>
+                                <td>1621CNT03</td>
+                                <td>15/07/2024</td>
+                                <td>Sáng</td>
+                                <td>Tiết 1-5</td>
+                                <td>
+                                    <div class="search-option">
+                                        <select name="search__select-option justify-center" id="search__select-option" class="select-option search__select-option">
+                                            <option value="1">-- Chọn số tiết --</option>
+                                            <option value="2">Đi học đầy đủ - 0</option>
+                                            <option value="3">Vắng - 1 tiết</option>
+                                            <option value="3">Vắng - 2 tiết</option>
+                                            <option value="3">Vắng - 3 tiết</option>
+                                            <option value="3">Vắng - 4 tiết</option>
+                                            <option value="3">Vắng - 5 tiết</option>
+                                            <option value="3">Nghỉ có lí do</option>
+                                            <option value="3">Nghỉ không lí do</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td colspan="2">
+                                    <input type="text" value="Vào học muộn 45 phút" class="table__input">
+                                </td>
+                            </tr>
+                            <tr class="tr__title">
+                                <td>1</td>
+                                <td>2109610335</td>
+                                <td>Phạm Xuân Huy</td>
+                                <td>An toàn và bảo mật thông tin</td>
+                                <td>1621CNT03</td>
+                                <td>15/07/2024</td>
+                                <td>Sáng</td>
+                                <td>Tiết 1-5</td>
+                                <td>
+                                    <div class="search-option">
+                                        <select name="search__select-option justify-center" id="search__select-option" class="select-option search__select-option">
+                                            <option value="1">-- Chọn số tiết --</option>
+                                            <option value="2">Đi học đầy đủ - 0</option>
+                                            <option value="3">Vắng - 1 tiết</option>
+                                            <option value="3">Vắng - 2 tiết</option>
+                                            <option value="3">Vắng - 3 tiết</option>
+                                            <option value="3">Vắng - 4 tiết</option>
+                                            <option value="3">Vắng - 5 tiết</option>
+                                            <option value="3">Nghỉ có lí do</option>
+                                            <option value="3">Nghỉ không lí do</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td colspan="2">
+                                    <input type="text" value="Vào học muộn 45 phút" class="table__input">
+                                </td>
+                            </tr>
+                            <tr class="tr__title">
+                                <td>1</td>
+                                <td>2109610335</td>
+                                <td>Phạm Xuân Huy</td>
+                                <td>An toàn và bảo mật thông tin</td>
+                                <td>1621CNT03</td>
+                                <td>15/07/2024</td>
+                                <td>Sáng</td>
+                                <td>Tiết 1-5</td>
+                                <td>
+                                    <div class="search-option">
+                                        <select name="search__select-option justify-center" id="search__select-option" class="select-option search__select-option">
+                                            <option value="1">-- Chọn số tiết --</option>
+                                            <option value="2">Đi học đầy đủ - 0</option>
+                                            <option value="3">Vắng - 1 tiết</option>
+                                            <option value="3">Vắng - 2 tiết</option>
+                                            <option value="3">Vắng - 3 tiết</option>
+                                            <option value="3">Vắng - 4 tiết</option>
+                                            <option value="3">Vắng - 5 tiết</option>
+                                            <option value="3">Nghỉ có lí do</option>
+                                            <option value="3">Nghỉ không lí do</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td colspan="2">
+                                    <input type="text" value="Vào học muộn 45 phút" class="table__input">
+                                </td>
+                            </tr>
+                            <tr class="tr__title">
+                                <td>1</td>
+                                <td>2109610335</td>
+                                <td>Phạm Xuân Huy</td>
+                                <td>An toàn và bảo mật thông tin</td>
+                                <td>1621CNT03</td>
+                                <td>15/07/2024</td>
+                                <td>Sáng</td>
+                                <td>Tiết 1-5</td>
+                                <td>
+                                    <div class="search-option">
+                                        <select name="search__select-option justify-center" id="search__select-option" class="select-option search__select-option">
+                                            <option value="1">-- Chọn số tiết --</option>
+                                            <option value="2">Đi học đầy đủ - 0</option>
+                                            <option value="3">Vắng - 1 tiết</option>
+                                            <option value="3">Vắng - 2 tiết</option>
+                                            <option value="3">Vắng - 3 tiết</option>
+                                            <option value="3">Vắng - 4 tiết</option>
+                                            <option value="3">Vắng - 5 tiết</option>
+                                            <option value="3">Nghỉ có lí do</option>
+                                            <option value="3">Nghỉ không lí do</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td colspan="2">
+                                    <input type="text" value="Vào học muộn 45 phút" class="table__input">
+                                </td>
+                            </tr>
+                            <tr class="tr__title">
+                                <td>1</td>
+                                <td>2109610335</td>
+                                <td>Phạm Xuân Huy</td>
+                                <td>An toàn và bảo mật thông tin</td>
+                                <td>1621CNT03</td>
+                                <td>15/07/2024</td>
+                                <td>Sáng</td>
+                                <td>Tiết 1-5</td>
+                                <td>
+                                    <div class="search-option">
+                                        <select name="search__select-option justify-center" id="search__select-option" class="select-option search__select-option">
+                                            <option value="1">-- Chọn số tiết --</option>
+                                            <option value="2">Đi học đầy đủ - 0</option>
+                                            <option value="3">Vắng - 1 tiết</option>
+                                            <option value="3">Vắng - 2 tiết</option>
+                                            <option value="3">Vắng - 3 tiết</option>
+                                            <option value="3">Vắng - 4 tiết</option>
+                                            <option value="3">Vắng - 5 tiết</option>
+                                            <option value="3">Nghỉ có lí do</option>
+                                            <option value="3">Nghỉ không lí do</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td colspan="2">
+                                    <input type="text" value="Vào học muộn 45 phút" class="table__input">
+                                </td>
+                            </tr>
+                            <tr class="tr__title">
+                                <td>1</td>
+                                <td>2109610335</td>
+                                <td>Phạm Xuân Huy</td>
+                                <td>An toàn và bảo mật thông tin</td>
+                                <td>1621CNT03</td>
+                                <td>15/07/2024</td>
+                                <td>Sáng</td>
+                                <td>Tiết 1-5</td>
+                                <td>
+                                    <div class="search-option">
+                                        <select name="search__select-option justify-center" id="search__select-option" class="select-option search__select-option">
+                                            <option value="1">-- Chọn số tiết --</option>
+                                            <option value="2">Đi học đầy đủ - 0</option>
+                                            <option value="3">Vắng - 1 tiết</option>
+                                            <option value="3">Vắng - 2 tiết</option>
+                                            <option value="3">Vắng - 3 tiết</option>
+                                            <option value="3">Vắng - 4 tiết</option>
+                                            <option value="3">Vắng - 5 tiết</option>
+                                            <option value="3">Nghỉ có lí do</option>
+                                            <option value="3">Nghỉ không lí do</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td colspan="2">
+                                    <input type="text" value="Vào học muộn 45 phút" class="table__input">
+                                </td>
+                            </tr>
+                            <tr class="tr__title">
+                                <td>1</td>
+                                <td>2109610335</td>
+                                <td>Phạm Xuân Huy</td>
+                                <td>An toàn và bảo mật thông tin</td>
+                                <td>1621CNT03</td>
+                                <td>15/07/2024</td>
+                                <td>Sáng</td>
+                                <td>Tiết 1-5</td>
+                                <td>
+                                    <div class="search-option">
+                                        <select name="search__select-option justify-center" id="search__select-option" class="select-option search__select-option">
+                                            <option value="1">-- Chọn số tiết --</option>
+                                            <option value="2">Đi học đầy đủ - 0</option>
+                                            <option value="3">Vắng - 1 tiết</option>
+                                            <option value="3">Vắng - 2 tiết</option>
+                                            <option value="3">Vắng - 3 tiết</option>
+                                            <option value="3">Vắng - 4 tiết</option>
+                                            <option value="3">Vắng - 5 tiết</option>
+                                            <option value="3">Nghỉ có lí do</option>
+                                            <option value="3">Nghỉ không lí do</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td colspan="2">
+                                    <input type="text" value="Vào học muộn 45 phút" class="table__input">
+                                </td>
+                            </tr>
+                            <tr class="tr__title">
+                                <td>1</td>
+                                <td>2109610335</td>
+                                <td>Phạm Xuân Huy</td>
+                                <td>An toàn và bảo mật thông tin</td>
+                                <td>1621CNT03</td>
+                                <td>15/07/2024</td>
+                                <td>Sáng</td>
+                                <td>Tiết 1-5</td>
+                                <td>
+                                    <div class="search-option">
+                                        <select name="search__select-option justify-center" id="search__select-option" class="select-option search__select-option">
+                                            <option value="1">-- Chọn số tiết --</option>
+                                            <option value="2">Đi học đầy đủ - 0</option>
+                                            <option value="3">Vắng - 1 tiết</option>
+                                            <option value="3">Vắng - 2 tiết</option>
+                                            <option value="3">Vắng - 3 tiết</option>
+                                            <option value="3">Vắng - 4 tiết</option>
+                                            <option value="3">Vắng - 5 tiết</option>
+                                            <option value="3">Nghỉ có lí do</option>
+                                            <option value="3">Nghỉ không lí do</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td colspan="2">
+                                    <input type="text" value="Vào học muộn 45 phút" class="table__input">
+                                </td>
+                            </tr>
+                            <tr class="tr__title">
+                                <td>1</td>
+                                <td>2109610335</td>
+                                <td>Phạm Xuân Huy</td>
+                                <td>An toàn và bảo mật thông tin</td>
+                                <td>1621CNT03</td>
+                                <td>15/07/2024</td>
+                                <td>Sáng</td>
+                                <td>Tiết 1-5</td>
+                                <td>
+                                    <div class="search-option">
+                                        <select name="search__select-option justify-center" id="search__select-option" class="select-option search__select-option">
+                                            <option value="1">-- Chọn số tiết --</option>
+                                            <option value="2">Đi học đầy đủ - 0</option>
+                                            <option value="3">Vắng - 1 tiết</option>
+                                            <option value="3">Vắng - 2 tiết</option>
+                                            <option value="3">Vắng - 3 tiết</option>
+                                            <option value="3">Vắng - 4 tiết</option>
+                                            <option value="3">Vắng - 5 tiết</option>
+                                            <option value="3">Nghỉ có lí do</option>
+                                            <option value="3">Nghỉ không lí do</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td colspan="2">
+                                    <input type="text" value="Vào học muộn 45 phút" class="table__input">
+                                </td>
+                            </tr>
+                            <tr class="tr__title">
+                                <td>1</td>
+                                <td>2109610335</td>
+                                <td>Phạm Xuân Huy</td>
+                                <td>An toàn và bảo mật thông tin</td>
+                                <td>1621CNT03</td>
+                                <td>15/07/2024</td>
+                                <td>Sáng</td>
+                                <td>Tiết 1-5</td>
+                                <td>
+                                    <div class="search-option">
+                                        <select name="search__select-option justify-center" id="search__select-option" class="select-option search__select-option">
+                                            <option value="1">-- Chọn số tiết --</option>
+                                            <option value="2">Đi học đầy đủ - 0</option>
+                                            <option value="3">Vắng - 1 tiết</option>
+                                            <option value="3">Vắng - 2 tiết</option>
+                                            <option value="3">Vắng - 3 tiết</option>
+                                            <option value="3">Vắng - 4 tiết</option>
+                                            <option value="3">Vắng - 5 tiết</option>
+                                            <option value="3">Nghỉ có lí do</option>
+                                            <option value="3">Nghỉ không lí do</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td colspan="2">
+                                    <input type="text" value="Vào học muộn 45 phút" class="table__input">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="btn__action" style="margin-top: 20px;">
+                    <div class="grid container">
+                        <div class="row">
+                            <div class="col flex justify-end content-center" style="width:100%">
+                                <button type="submit" class="btn btn--primary">Lưu điểm danh</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Seperator -->
+    <hr class="seperator">
+    <!-- Footer -->  
+    <script src="./js/main.js"></script>
+</body>
+</html>

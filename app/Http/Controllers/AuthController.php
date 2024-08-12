@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use Exception;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\HosoGiangvien;
+use PhpParser\Node\Stmt\TryCatch;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Controllers\Controller;
-use PhpParser\Node\Stmt\TryCatch;
 
 class AuthController extends Controller
 {
@@ -19,7 +20,7 @@ class AuthController extends Controller
     // Login
     public function login()
     {
-        $credentials = request(['email', 'password']);
+        $credentials = request(['magv', 'password']);
 
         if (! $token = auth('api')->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
@@ -38,42 +39,56 @@ class AuthController extends Controller
         return response()->json(['message' => 'Successfully logged out']);
     }
 
-    // Refresh token
-    // public function refreshToken()
-    // {
-    //     $token = JWTAuth::getToken();
-    //     $newToken = JWTAuth::refresh($token);
-    //     $ttl = config('jwt.ttl'); // Lấy TTL từ cấu hình
+    // // Xử lý RefreshToken
+    // public function refresh() {
+    //     $refreshToken = request()->refresh_token;
+    //     try {
+    //         $decode = JWTAuth::getJWTProvider()->decode($refreshToken);
+    //         // Xử lý cấp lại token mới
+    //         // -> Lấy thông tin user
+    //         $user = User::find($decode['magv']);
+    //         if (!$user) {
+    //             return response()->json(['error'=> 'User not found'], 404);
+    //         }
 
-    //     return response()->json([
-    //         'access_token' => $newToken,
-    //         'token_type' => 'bearer',
-    //         'expires_in' => $ttl * 60
-    //     ]);
+    //         // Vô hiệu hóa token hiện tại
+    //         JWTAuth::invalidate(JWTAuth::getToken());
+    //         $token = auth('api')->login($user);
+    //         $refreshToken = $this->createRefreshToken();
+
+    //         return $this->respondWithToken($token, $refreshToken);
+    //     } catch (Exception $exception) {
+    //        return response()->json(['error' => 'Refresh Token Invalid'], 500); 
+    //     }
     // }
 
     // Xử lý RefreshToken
     public function refresh() {
         $refreshToken = request()->refresh_token;
         try {
+            // Giải mã refresh token
             $decode = JWTAuth::getJWTProvider()->decode($refreshToken);
-            // Xử lý cấp lại token mới
-            // -> Lấy thông tin user
-            $user = User::find($decode['user_id']);
+            
+            // Lấy thông tin người dùng từ mã giảng viên
+            $user = HosoGiangvien::find($decode['MaGV']);
             if (!$user) {
                 return response()->json(['error'=> 'User not found'], 404);
             }
 
             // Vô hiệu hóa token hiện tại
             JWTAuth::invalidate(JWTAuth::getToken());
-            $token = auth('api')->login($user);
-            $refreshToken = $this->createRefreshToken();
 
-            return $this->respondWithToken($token, $refreshToken);
+            // Tạo token mới
+            $token = auth('api')->login($user);
+            $RefreshToken = $this->createRefreshToken();
+
+            return $this->respondWithToken($token, $RefreshToken);
+            return redirect()->route('/api/homepage'); // Điều hướng đến route tên là 'home'
         } catch (Exception $exception) {
-           return response()->json(['error' => 'Refresh Token Invalid'], 500); 
+            return response()->json(['error' => 'Refresh Token Invalid'], 500); 
         }
     }
+
 
     // Profile
     public function profile() 
@@ -101,7 +116,7 @@ class AuthController extends Controller
     private function createRefreshToken()
     {
         $data = [
-            'user_id' => auth('api')->user()->id,
+            'MaGV' => auth('api')->user()->MaGV, // Sử dụng MaGV từ model HosoGiangvien
             'random' => rand() . time(),
             'exp' => time() + config('jwt.refresh_ttl')
         ];

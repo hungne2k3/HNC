@@ -42,11 +42,10 @@ return [
         ],
 
         'api' => [
-        'driver' => 'jwt',
-        'provider' => 'users',
+            'driver' => 'jwt',
+            'provider' => 'giangvien',
         ],
     ],
-
     /*
     |--------------------------------------------------------------------------
     | User Providers
@@ -70,11 +69,17 @@ return [
             'model' => App\Models\User::class,
         ],
 
+        'giangvien' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\HosoGiangvien::class,
+        ],
+
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
     ],
+
 
     /*
     |--------------------------------------------------------------------------

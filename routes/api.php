@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\api\HosoGiangvienController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group([
 
     'middleware' => 'api',
-    'prefix' => 'auth'
+    'prefix' => '/auth'
 
 ], function ($router) {
 
@@ -34,3 +35,9 @@ Route::group([
     Route::post('refresh', [AuthController::class, 'refresh']);
 
 });
+
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
+
+Route::middleware('auth:api')->get( 'api/hosogiangvien/{magv}', [HosoGiangvienController::class, 'getHosoGiangVien']);  

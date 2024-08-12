@@ -65,6 +65,31 @@ php artisan key:generate
 php artisan serve
 ```
 
+9. Set up Tymon/jwt-auth:
+
+- Cài đặt
+   ```
+   composer require tymon/jwt-auth
+   ```
+
+- Publish the config:
+   
+   ```
+   php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+   ```
+
+- Khởi tạo Mã số bí mật (JWT_SECRET):
+
+   ```
+   php artisan jwt:secret
+   ```
+
+- Update version mới nhất
+  
+  ```
+  composer require tymon/jwt-auth
+  ```
+
 Truy cập ứng dụng thông qua trình duyệt web tại địa chỉ sau: **http://localhost:8000**
 
 **Quy chuẩn**<br>
@@ -79,4 +104,5 @@ Truy cập ứng dụng thông qua trình duyệt web tại địa chỉ sau: **
    Đối với commits và comments thì ở đây không phải ai cũng thành thạo tiếng anh vậy nên thống nhất là ghi tiếng việt để người khác có thể đọc và hiểu
 
 **Tác giả**<br>
-Dự án được phát triển bởi team sinh viên khoa CNTT HPC.
+Dự án được phát triển bởi team sinh viên khoa CNTT HPC. <br>
+**CONTACT FOR ME: phamxuanhuyforwork@gmail.com.**
