@@ -42,6 +42,11 @@ class HoSo extends Model
     public $timestamps = true; // Bảng có các cột created_at và updated_at
 
     // Ràng buộc khóa ngoại
+    public function sinhvien()
+    {
+        return $this->hasMany(User::class, 'HoSo_ID');
+    }
+
     public function nganh()
     {
         return $this->belongsTo(Nganh::class, 'Nganh_ID');

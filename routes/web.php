@@ -15,12 +15,21 @@ use App\Http\Controllers\HomeController;
 |
 */
 
+// Route::get('/', function () {
+//     return view('login');
+// });
+
+// Route::post('/login', [AuthController::class, 'login'])->name('login');
+
+// Route::get('homepage', function () {
+//     return view('homepage');
+// });
 Route::get('/', function () {
     return view('login');
-});
+})->name('login');
 
-Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 
-Route::get('homepage', function () {
+Route::get('/homepage', function () {
     return view('homepage');
-});
+})->name('homepage');

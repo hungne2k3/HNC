@@ -22,11 +22,11 @@ class AuthController extends Controller
     {
         $credentials = request(['magv', 'password']);
 
-        if (! $token = auth('api')->attempt($credentials)) {
+        if (!$token = auth('api')->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
-        
+
         $refreshToken = $this->createRefreshToken();
         return $this->respondWithToken($token, $refreshToken);
     }
@@ -63,16 +63,17 @@ class AuthController extends Controller
     // }
 
     // Xử lý RefreshToken
-    public function refresh() {
+    public function refresh()
+    {
         $refreshToken = request()->refresh_token;
         try {
             // Giải mã refresh token
             $decode = JWTAuth::getJWTProvider()->decode($refreshToken);
-            
+
             // Lấy thông tin người dùng từ mã giảng viên
             $user = HosoGiangvien::find($decode['MaGV']);
             if (!$user) {
-                return response()->json(['error'=> 'User not found'], 404);
+                return response()->json(['error' => 'User not found'], 404);
             }
 
             // Vô hiệu hóa token hiện tại
@@ -83,15 +84,15 @@ class AuthController extends Controller
             $RefreshToken = $this->createRefreshToken();
 
             return $this->respondWithToken($token, $RefreshToken);
-            return redirect()->route('/api/homepage'); // Điều hướng đến route tên là 'home'
+            // return redirect()->route('/api/homepage'); // Điều hướng đến route tên là 'home'
         } catch (Exception $exception) {
-            return response()->json(['error' => 'Refresh Token Invalid'], 500); 
+            return response()->json(['error' => 'Refresh Token Invalid'], 500);
         }
     }
 
 
     // Profile
-    public function profile() 
+    public function profile()
     {
         try {
             return response()->json(auth('api')->user());
